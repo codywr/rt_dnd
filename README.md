@@ -8,7 +8,7 @@ decide but must enter their decision in the provided web page. After time
 expires, no further changes can be made and the DM interprets each player's
 input and resolves all actions simultaneously.
 
-********************************************************************************
+................................................................................
 
 Among the nice-to-have-but-not-necessary features are the following:
 * A map/grid showing noteworthy features (such as objects, monsters and players)
