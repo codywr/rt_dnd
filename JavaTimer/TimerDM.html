@@ -5,63 +5,70 @@
        #output{           
            width:120px;
            height:25px;
-           background-color:#CCC;
-           border:1px solid#999;
-       }
-   </style>
-   
+           background-color:rgb(0, 255, 221);
+           border:3px solid (0, 0, 0);           
+           position: absolute;
+           left: 1000px;
+        }
+        #startPause{
+               position:absolute;
+               left: 1010px;
+               top: 50px;
+               background-color: darkgreen;
+        }
+        #reset{
+               position: absolute;
+               left: 1060px;
+               top: 50px;
+               background-color: rgb(76, 0, 255);
+        }
+
+   </style>   
 </head>
-<body>
-    
-   <p><button id= "output" type="text"></button></p>
+<body>    
+    <p><button id= "output" type="text" text-align-last: "left" > 00:00:00</button></p>
     <div id ="controls">
         <button id="startPause" onclick="startPause()">Start</button>
-        <button onclick="reset()">Reset</button>
+        <button id="reset" onclick="reset()">Reset</button>
     </div>
     <script>
         var time = 0;
-        var running = 0;
-   
-           function startPause(){
-               
-               if(running == 0){
-                   running = 1;
-                   increment();
-                   document.getElementById("startPause").innerHtml = "Pause";
-               }
-               else{
-                   running = 0;
-                   document.getElementById("startPause").innerHtml = "Resume";
-               }
-           }
-           function reset(){
-               running = 0;
-               time = 0;
-               document.getElementById("startPause").innerHTML = "Start";
-               document.getElementById("output").innerHTML = "00:00:00";
-           }
-           function increment(){
-               if(running == 1){
-               setTimeout(function(){
+        var running = 0;   
+        function startPause(){               
+            if(running == 0){
+                running = 1;
+                increment();   
+                document.getElementById("startPause").innerHTML = "Stop";               
+            }
+            else{
+                running = 0;  
+                document.getElementById("startPause").innerHTML = "Start";
+            }
+        }
+        function reset(){
+            running = 0;
+            time = 0;
+            document.getElementById("startPause").innerHTML = "Start";
+            document.getElementById("output").innerHTML = "00:00:00";
+        }
+        function increment(){
+            setTimeout(function(){
+                if(running == 1){
                    time++;
-                   var mins = Math.floor(time/10/60);
-                   var secs= Math.floor(time/10);
-                   var tenths= time % 10
-   
-                   if(mins< 10){
+                   var mins = Math.floor(time/600);
+                   var secs= Math.floor(time/10 % 60);
+                   var tenths= time % 10;   
+                    if(mins< 10){
                        mins = "0" + mins;
-                   }
-   
-                   if(secs <10){
+                    }
+                    if(secs <10){
                        secs = "0" + secs;
-                   }
-                   document.getElementById("output").innerHTML = mins + ":" + secs + ":" + "0" + tenths;
-                   increment();
-               },100);
-               }
-   
-           }  
-      </script>
-    
+                    }
+                    document.getElementById("output").innerHTML = mins + ":" + secs + ":" + "0" + tenths;
+                    increment();
+                }
+            },100);
+        }  
+      </script>    
 </body>
 </html>
