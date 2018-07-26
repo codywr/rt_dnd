@@ -1,0 +1,15 @@
+{
+  "name": "chat_js",
+  "version": "0.1.0",
+  "description": "Basic chat app using JS",
+  "main": "chat_js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cody Robertson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  }
+}
