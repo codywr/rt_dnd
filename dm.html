@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="styles/main.css" type="text/css" rel="stylesheet">
+        
     </head>
-    <body>
-        Player 1
-        <input type="checkbox" id="action1">READY OR NOT</input>
+    <body id = "theDude">
+        Player 1 <br>
+        <button onclick="ActionReady('p1txt')" id="action1">READY OR NOT</button>
         <br>
         <input type="text" id="p1txt">
         <br>
 
-        Player 2
-        <input type="checkbox" id="action2">READY OR NOT</input>
+        Player 2 <br>
+        <button onclick="ActionReady('p2txt')" id="action2">READY OR NOT</button>
         <br>
         <input type="text" id="p2txt">
         <br>
 
-        Player 3
-        <input type="checkbox" id="action3">READY OR NOT</input>
+        Player 3 <br>
+        <button onclick="ActionReady('p3txt')" id="action3">READY OR NOT</button>
         <br>
         <input type="text" id ="p3txt">
         <br>
-
-        Player 4
-        <input type="checkbox" id="action4">READY OR NOT</input>
+        
+        Player 4 <br>
+        <button onclick="ActionReady('p4txt')" id="action4">READY OR NOT</button>
         <br>
         <input type="text" id="p4txt">
         <br>
         
-        <script src="js/dm.js" type="text/javascript"></script>
+        <script >
+            
+            //var theParent = document.querySelector("#theDude");
+            //theParent.addEventListener("click", ActionReady, false);
+
+
+            function ActionReady(e){
+               // if (e.target !== e.currentTarget) {
+               //     var clickedItem = e.target.id;
+                   // alert("hello" + clickedItem)
+                    document.getElementById(e).disabled = true;
+                //}
+                //e.stopPropagation();
+            }
+            
+            
+        </script>
     </body>
 </html>
 
