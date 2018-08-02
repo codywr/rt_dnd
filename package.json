@@ -4,7 +4,8 @@
   "description": "Basic chat app using JS",
   "main": "chat_js.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "echo \"Error: no tests created yet\" && exit 0"
   },
   "author": "Cody Robertson",
   "license": "ISC",

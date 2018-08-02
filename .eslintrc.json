@@ -1,0 +1,13 @@
+{
+    "env": {
+        "browser":true,
+        "es6":true,
+        "node":true,
+        "jquery":true
+    },
+    "extends": "airbnb-base",
+    "rules":{
+        // allow function calls before definitions
+        "no-use-before-define": [ 2, { "functions": false } ]
+    }
+}
