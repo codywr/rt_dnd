@@ -1,11 +1,12 @@
 {
-  "name": "chat_js",
+  "name": "rt_dnd",
   "version": "0.1.0",
-  "description": "Basic chat app using JS",
-  "main": "chat_js.js",
+  "description": "Real time D&D app",
+  "main": "app.js",
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore --ignore-pattern /public .",
-    "test": "echo \"Error: no tests created yet\" && exit 0"
+    "test": "echo \"Error: no tests created yet\" && exit 0",
+    "start": "node app.js"
   },
   "author": "Cody Robertson",
   "license": "ISC",
