@@ -1,37 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <title>DUNGEON MASTER</title>
+    <style>
         
+        .wrapper{
+
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1em;
+            position: relative;            
+        }       
+         #output{           
+           width:120px;
+           height:25px;
+           background-color:rgb(0, 255, 221);
+           border:3px solid (0, 0, 0);
+           position: absolute;
+           right: 22px;
+           top: 10px;
+        }
+        #startPause{    
+            background-color: darkgreen;
+            position: absolute;
+            right: 90px;
+            top: 40px;
+        }
+        #reset{    
+            background-color: rgb(76, 0, 255);
+            position: absolute;
+            right: 30px;
+            top: 40px;
+        } 
+    </style>
+    <head>        
     </head>
-    <body id = "theDude">
-        Player 1 <br>
-        <button onclick="ActionReady('p1txt')" id="action1">READY OR NOT</button>
-        <br>
-        <input type="text" id="p1txt">
-        <br>
+    <body>
+        <br><br><br><br><br>
+        <div class="wrapper">
+            <div>
+                Player 1 <button onclick="ActionReady('p1txt')" id="action1">READY OR NOT</button><br>
+                <textarea id="p1txt" rows="10" cols="40">Are we having fun yet?</textarea><br>
+            </div>
+            <div> 
+                Player 2 <button onclick="ActionReady('p2txt')" id="action2">READY OR NOT</button><br>
+                <textarea id="p2txt" rows="10" cols="40">Are we having fun yet?</textarea><br> 
+            </div>
+        </div>
+        <div class="wrapper">
+            <div><br>
+                Player 3 <button onclick="ActionReady('p3txt')" id="action3">READY OR NOT</button><br>   
+                <textarea id="p3txt" rows="10" cols="40">Are we having fun yet?</textarea><br>
+            </div>
+            <div><br>
+                Player 4 <button onclick="ActionReady('p4txt')" id="action4">READY OR NOT</button><br> 
+                <textarea id="p4txt" rows="10" cols="40">Are we having fun yet?</textarea><br>  
+            </div>
+        </div>
 
-        Player 2 <br>
-        <button onclick="ActionReady('p2txt')" id="action2">READY OR NOT</button>
-        <br>
-        <input type="text" id="p2txt">
-        <br>
-
-        Player 3 <br>
-        <button onclick="ActionReady('p3txt')" id="action3">READY OR NOT</button>
-        <br>
-        <input type="text" id ="p3txt">
-        <br>
-        
-        Player 4 <br>
-        <button onclick="ActionReady('p4txt')" id="action4">READY OR NOT</button>
-        <br>
-        <input type="text" id="p4txt">
-        <br>
+        <button id= "output" type="text" text-align-last: "left" >00:00:00</button>
+        <div id ="wrapper">
+        <button id="startPause" onclick="startPause()">Start</button>
+        <button id="reset" onclick="reset()">Reset</button>
+        </div>
         
         <script>
             function ActionReady(e){               
                 document.getElementById(e).disabled = true;       
             }
+
+            var time = 0;
+        var running = 0;   
+        function startPause(){               
+            if(running == 0){
+                running = 1;
+                increment();   
+                document.getElementById("startPause").innerHTML = "Stop";               
+            }
+            else{
+                running = 0;  
+                document.getElementById("startPause").innerHTML = "Start";
+            }
+        }
+        function reset(){
+            running = 0;
+            time = 0;
+            document.getElementById("startPause").innerHTML = "Start";
+            document.getElementById("output").innerHTML = "00:00:00";
+        }
+        function increment(){
+            setTimeout(function(){
+                if(running == 1){
+                   time++;
+                   var mins = Math.floor(time/600);
+                   var secs= Math.floor(time/10 % 60);
+                   var tenths= time % 10;   
+                    if(mins< 10){
+                       mins = "0" + mins;
+                    }
+                    if(secs <10){
+                       secs = "0" + secs;
+                    }
+                    document.getElementById("output").innerHTML = mins + ":" + secs + ":" + "0" + tenths;
+                    increment();
+                }
+            },100);
+        }  
         </script>
     </body>
 </html>
