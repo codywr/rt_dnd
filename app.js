@@ -1,10 +1,18 @@
 
 const express = require('express');
+const handlebars = require('express-handlebars');
 const adminRouter = require('./src/routes/admin');
 
 const port = 3000;
 
 const app = express();
+
+//
+// Views
+app.use(express.static('public'));
+app.set('views', './src/views');
+app.engine('.hbs', handlebars({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
 
 //
 // Routes
@@ -16,13 +24,8 @@ chatRouter.route('/').get((req, res) => {
   res.send('Hello chat');
 });
 
-//
-// Defualts
-app.use(express.static('public'));
-app.use(express.static('src/views'));
-
 app.get('/', (req, res) => {
-  res.send();
+  res.render('index');
 });
 
 

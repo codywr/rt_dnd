@@ -47,6 +47,7 @@ adminRouter.route('/newGame').get((req, res) => {
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
     collection.insertMany(games, (insertErr, results) => {
+      // TODO: Format output all pretty like (with handlebars)
       res.send(results); // Display results for feedback
       client.close();
     });
