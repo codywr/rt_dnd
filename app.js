@@ -1,7 +1,9 @@
 
 const express = require('express');
 const handlebars = require('express-handlebars');
+
 const adminRouter = require('./src/routes/admin');
+const gamesRouter = require('./src/routes/games');
 
 const port = 3000;
 
@@ -18,6 +20,7 @@ app.set('view engine', '.hbs');
 // Routes
 const chatRouter = express.Router();
 app.use('/Admin', adminRouter);
+app.use('/Games', gamesRouter);
 app.use('/Chat', chatRouter);
 
 chatRouter.route('/').get((req, res) => {
@@ -25,7 +28,7 @@ chatRouter.route('/').get((req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('games');
 });
 
 
