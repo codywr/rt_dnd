@@ -11,9 +11,12 @@
   "author": "Cody Robertson",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mongodb": "^3.1.1",
+    "mongoose": "^5.2.7",
     "socket.io": "^2.1.1"
   }
 }
